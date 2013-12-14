@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .container.theme-showcase
+    .row.row-offcanvas.row-offcanvas-right
+      .col-xs-12.col-sm-9
+        p.pull-right.visible-xs
+          button.btn.btn-primary.btn-xs(type='button', data-toggle='offcanvas') Toggle nav
+        .jumbotron
+          h1 Hello, world!
+          p
+            | This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+          p
+            a.btn.btn-primary.btn-lg(href='#', role='button') Learn more »
+
+        .panel.panel-primary
+          .panel-heading
+            h3.panel-title Panel title
+          .panel-body
+            | Panel content
+        
+
+      #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas(role='navigation')
+        .list-group
+          a.list-group-item.active(href='#') Link
+            span.badge 14
+          a.list-group-item(href='#') Link
+            span.badge.badge-primary 15
+          a.list-group-item(href='#') Link
+            span.badge 0
+          a.list-group-item(href='#') Link
+            span.badge 9
+          a.list-group-item(href='#') Link
+            span.badge 4
+          a.list-group-item(href='#') Link
+            span.badge 0
+          a.list-group-item(href='#') Link
+            span.badge 0
+          a.list-group-item(href='#') Link
+            span.badge 0
+
