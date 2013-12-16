@@ -28,7 +28,7 @@ var loadingSpinner = angular.module('loadingSpinner', []);
         };
     });
 
-var render = angular.module('render', []);
+var render = angular.module('render', ['ngGrid']);
 
 render.run(function ($rootScope, $location, $http, $timeout){
 });
