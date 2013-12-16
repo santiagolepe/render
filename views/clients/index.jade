@@ -5,25 +5,48 @@ block content
   link(rel='stylesheet', href='/stylesheets/clients.css')
 
   .container(ng-controller='clients')
+
+    hr
     .row.row-offcanvas.row-offcanvas-left
         #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas(role='navigation')
-          .list-group
-            a.list-group-item.active(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-            a.list-group-item(href='#') Link
-  
+          ul.nav.nav-pills.nav-stacked
+            li.active
+              a(href='#')
+                span.glyphicon.glyphicon-user  Clientes
+                span.badge.pull-right {{ clients.length }}
+            li
+              a(href='#')
+                span.glyphicon.glyphicon-time  Activos
+                span.badge.pull-right 10
+            li
+              a(href='#', ng-click='openForm()')
+                span.glyphicon.glyphicon-plus  Nuevo
+          
         .col-xs-12.col-sm-9
-          p.pull-right.visible-xs
-            button.btn.btn-primary.btn-xs(type='button', data-toggle='offcanvas') ver menu
-          .jumbotron
-            h1 Hello, world!
-            p
-              | This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
+          p.pull-left.visible-xs
+            input.btn.btn-primary.btn.toogleMenu(type='button', data-toggle='offcanvas', value='ver menu')
+          .gridClients(ng-grid='grid')
+
+    #modalForm.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#titleForm.modal-title Nuevo Cliente
+          .modal-body
+
+            form.form-horizontal(role='form')
+              .form-group
+                  label.col-sm-2.control-label(for='firstName') Nombre:
+                  .col-sm-10
+                    input#firstName.form-control(placeholder='Nombre', required)
+
+              .form-group
+                  label.col-sm-2.control-label(for='lastName') Apellido:
+                  .col-sm-10
+                    input#lastName.form-control(placeholder='Apellido', required)
+                  
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+            button.btn.btn-primary(type='button', data-dismiss='modal', ng-click='save()') Save
 
