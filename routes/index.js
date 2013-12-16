@@ -1,4 +1,5 @@
-var homeController = require('../controllers/home');
+var home = require('../controllers/home');
+var clients = require('../controllers/clients');
 
 //MIDDLEWARE for authentication
 var auth = function(req, res, next){
@@ -14,9 +15,9 @@ var auth = function(req, res, next){
 module.exports = function(app){
 
   //home request
-  app.get('/', homeController.home.bind(homeController));
-  app.post('/logout', homeController.logout.bind(homeController));
-  app.post('/', homeController.login.bind(homeController));
+  app.get('/', home.home.bind(home));
+  app.post('/logout', home.logout.bind(home));
+  app.post('/', home.login.bind(home));
 
   app.get('/payments', function(req, res){
     res.render('payments/index');   
@@ -29,5 +30,9 @@ module.exports = function(app){
       nav: 'clients'
     });   
   });
+
+  //clients RESTFUL
+  app.get('/api/clients', clients.getAll.bind(clients));
+  app.post('/api/clients', clients.add.bind(clients));
 
 }
