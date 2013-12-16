@@ -1,6 +1,17 @@
 body {
 }
 
+a:hover {
+  color:#D5C8C8;
+  cursor: pointer;
+} 
+
+.username{
+  color:white;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
 .bodyContainer {
   margin-top: 70px;
 }
